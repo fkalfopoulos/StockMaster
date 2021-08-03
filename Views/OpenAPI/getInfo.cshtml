@@ -1,0 +1,86 @@
+@using System;
+@model FantasyWealth.Models.WallViewModel
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                Next Earnings Report 
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                avg10Volume
+            </th>
+            <th>
+                avg30Volume
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CEO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.website)
+            </th>
+            <th>
+                peRatio
+            </th>
+            <th>
+                Company Info
+            </th>
+            <th>
+                Market Cap
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <a href="/OpenAPI/WatchListed?=@Html.DisplayFor(model => model.symbol)" target="_blank"> <img src="@Html.DisplayFor(model => model.logo)" /></a>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.nextEarningsDate)
+            </td>
+            <td>
+                <a href="https://www.seekingalpha.com//symbol/@Html.DisplayFor(model => model.symbol)" target="_blank">@Html.DisplayFor(model => model.companyName)</a>               
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.avg10Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.avg30Volume)
+            </td>
+            <td>
+                <a href="https://en.wikipedia.org/wiki/@Html.DisplayFor(model => model.CEO)" target="_blank">@Html.DisplayFor(model => model.CEO)</a>  
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.country)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.city)
+            </td>
+            <td>
+                <a href="@Html.DisplayFor(model => model.website)" target="_blank"> @Html.DisplayFor(model => model.website) </a>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.peRatio)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Tag)
+            </td>            
+            <td>
+                @Html.DisplayFor(model => model.marketCap)
+            </td>
+        </tr>
+    </tbody>
+</table>

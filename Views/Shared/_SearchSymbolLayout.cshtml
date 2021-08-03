@@ -1,0 +1,83 @@
+@using Microsoft.AspNetCore.Identity
+@using FantasyWealth.Areas.Identity.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="text-center">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form asp-controller="Trade" asp-action="SearchSymbolResult" method="get">
+                    <div class="text-danger" id="txtError"></div>
+                    <div class="form-group">
+                        <label for="SearchSymbol">Price Lookup: Enter a Ticker Symbol</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="GOOGL" id="SearchSymbol" name="SearchSymbol">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button" id="btnSignedInSymbol">
+                                    Get Price
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form asp-controller="OpenAPI" asp-action="getPrice" method="get">
+                    <div class="text-danger" id="txtError"></div>
+                    <div class="form-group">
+                        <label for="SearchSymbol">Price Lookup: Enter a Ticker Symbol</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="GOOGL" id="SearchSymbol" name="SearchSymbol">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button" id="btnSymbol">Get Price</button>
+                            </div>
+                            <br />
+                            <div class="col-sm-10">
+                                <select class="form-control" name="MonthId" id="MonthId">
+                                    <option value="1" >1 month </option>
+                                    <option value="3">3 months</option>
+                                    <option value="6">6 months</option>
+                                    <option value="12">year</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col">
+        <div id="symbolInfoDiv"></div>
+        <div id="symbolAdvancedDiv"></div>
+        <div id="finDiv"></div>
+        <center>
+            <br />
+            <br />
+
+            <div id="priceDiv"></div>
+            <div id="marketCap"></div>
+            <div id="peersDiv"></div>
+        </center>
+        <br />
+        <br />
+        <div id="symbolChartDiv"></div>
+    </div>
+</div>

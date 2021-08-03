@@ -1,0 +1,85 @@
+﻿@model FantasyWealth.Models.EconomicDataModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                currentAssets
+            </th>
+            <th>
+                totalAssets
+            </th>
+            <th>
+                currentCash
+            </th>
+            <th>
+                inventory
+            </th>
+            <th>
+                longTermDebt
+            </th>
+            <th>
+                longTermInvestments
+            </th>
+            <th>
+                receivables
+            </th>
+
+            <th>
+                reportDate
+            </th>
+            <th>
+                minorityInterest
+            </th>
+            <th>
+                Related Companies
+            </th>
+            <th>
+                SeekingA Companies 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.currentAssets)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.totalAssets)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.currentCash)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.inventory)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.longTermDebt)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.longTermInvestments)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.receivables)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.reportDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.minorityInterest)
+            </td>
+            <td>
+                @foreach (var c in Model.Peers)
+                {
+                    <a href="https://www.marketwatch.com/investing/stock/@c" target="_blank">@c , </a>
+                }
+            </td>
+            <td>
+                @foreach (var c in Model.Peers)
+                {
+                    <a href="https://seekingalpha.com/symbol/@c" target="_blank">@c , </a>
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>

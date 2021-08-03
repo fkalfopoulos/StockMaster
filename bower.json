@@ -1,0 +1,11 @@
+{
+    "name": "fantasywealth",
+    "private": true,
+    "dependencies": {
+      "bootstrap": "4.1.2",
+      "jquery" : "3.3.1",
+      "fontawesome": "5.1.0",
+      "popper.js":"1.14.3",
+      "jquery-ui": "latest"
+    }
+  }

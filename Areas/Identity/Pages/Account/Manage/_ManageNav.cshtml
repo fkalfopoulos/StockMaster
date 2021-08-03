@@ -1,0 +1,9 @@
+@inject SignInManager<FantasyWealthUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav flex-column nav-pills white">
+    <li  class="nav-link @ManageNavPages.IndexNavClass(ViewContext)"><a asp-page="./Index">Profile</a></li>
+    <li class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)"><a id="change-password" asp-page="./ChangePassword">Password</a></li>
+    <li class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)"><a asp-page="./PersonalData">Personal data</a></li>
+</ul>

@@ -1,0 +1,561 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Overpass|Raleway|Roboto');
+
+/**
+    // Elements
+    * Body
+    * Default CSS
+    * Navigation
+    * Footer
+    * Title
+    * Table
+    * Fieldset
+    * Buttons
+    * Input
+    * Chart
+    * Search Form
+    * Media Queries
+**/
+
+/*-----------------------------------------------------------------------------------
+    Body CSS
+-----------------------------------------------------------------------------------*/
+html, body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	font-family: 'Overpass', sans-serif;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	/* Sticky footer */
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	/* Background */
+	background: #5f2c82; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #49a09d, #5f2c82); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+/*-----------------------------------------------------------------------------------
+    Default CSS
+-----------------------------------------------------------------------------------*/
+.body-content {
+	padding-left: 65px;
+	padding-right: 65px;
+	width: 100%;
+	margin: 3% auto;
+	min-height: calc(100% - 154px);
+}
+
+#error ul li{
+	color: red;
+	text-align: center;
+}
+
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+
+.carousel-caption p {
+	font-size: 20px;
+	line-height: 1.4;
+}
+
+.btn-bracketed::before {
+	display: inline-block;
+	content: "[";
+	padding-right: 0.5em;
+}
+
+.btn-bracketed::after {
+	display: inline-block;
+	content: "]";
+	padding-left: 0.5em;
+}
+
+.carousel-inner .item img[src$=".svg"] {
+	width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+	.carousel-caption {
+		display: none;
+	}
+
+	.body-content {
+		padding-left: 8px;
+		padding-right: 8px;
+		width: 100%;
+		margin: 3% auto;
+	}
+}
+
+/*-----------------------------------------------------------------------------------
+    Navigation CSS
+-----------------------------------------------------------------------------------*/
+nav {
+	background: rgba(255, 255, 255, 0.25);
+	/* Shadows */
+	box-shadow: 0px 7px 18px -6px rgba(0,0,0,0.66);
+	-webkit-box-shadow: 0px 7px 18px -6px rgba(0,0,0,0.66);
+	-moz-box-shadow: 0px 7px 18px -6px rgba(0,0,0,0.66);
+	/* Background transition*/
+	-webkit-transition: background-color .7s;
+	-ms-transition: background-color .7s;
+	transition: background-color .7s;
+}
+
+nav .nav-wrapper {
+	width: 94%;
+    height:310px;
+	margin: auto;
+}
+
+nav .brand-logo {
+	font-family: 'Montserrat', Raleway, sans-serif;
+	font-weight: 100 !important;
+}
+
+nav .brand-logo.right {
+	padding-right: 25px;
+}
+
+nav .brand-logo img {
+	vertical-align: middle;
+	padding-bottom: 10px;
+}
+
+/*Menu item*/
+.side-nav li a {
+	color: #757575;
+	font-weight: normal;
+	border-bottom: 1px solid rgba(14, 109, 191, 0.20);
+	text-transform: uppercase;
+	text-align: center;
+	border-top: 1px solid rgba(14, 109, 191, 0.0);
+	border-bottom: 1px solid rgba(14, 109, 191, 0.0);
+}
+
+.side-nav li a:hover {
+	color: #757575;
+	font-weight: bold;
+	border-top: 1px solid rgba(14, 109, 191, 1.0);
+	border-bottom: 1px solid rgba(14, 109, 191, 1.0);
+}
+
+.side-nav .collapsible-header, .side-nav.fixed .collapsible-header {
+	background-color: transparent;
+	border: none;
+	line-height: inherit;
+	height: inherit;
+	padding: 0 32px;
+	border-top: 1px solid rgba(14, 109, 191, 0.0);
+	border-bottom: 1px solid rgba(14, 109, 191, 0.0);
+}
+
+/*Active menu item*/
+.side-nav li.active {
+	background-color: rgba(0,0,0,0.05);
+}
+
+.side-nav li.active > a {
+	color: #353535;
+	font-weight: bold;
+}
+
+.side-nav {
+	position: fixed;
+	width: 300px;
+	left: 0;
+	top: 0;
+	margin: 0;
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	height: 100%;
+	height: calc(100% + 60px);
+	height: -moz-calc(100%);
+	padding-bottom: 60px;
+	background-color: rgba(255, 255, 255, 0.88);
+	z-index: 999;
+	overflow-y: auto;
+	will-change: transform;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-105%);
+	transform: translateX(-105%);
+	transition: 0.7s;
+	-webkit-transition: 0.7s;
+	-ms-transition: 0.7s;
+}
+
+/*Menu item*/
+nav ul a {
+	-webkit-transition: background-color .3s;
+	-ms-transition: background-color .3s;
+	transition: background-color .3s;
+	font-size: 14px;
+	color: #FFF;
+	display: block;
+	padding: 0 12px;
+	cursor: pointer;
+}
+
+#settings-btn {
+	display: block;
+	height: 64px;
+	line-height: 68.5px;
+	text-align: center;
+	background: #1f638c;
+	transition: background-color .3s;
+	font-size: 1rem;
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	bottom: 114px;
+	left: 0;
+	width: 100%;
+	padding-left: 0px;
+	margin-left: 0px;
+	color: white;
+}
+
+#account-btn {
+	display: block;
+	height: 64px;
+	line-height: 68.5px;
+	text-align: center;
+	transition: background-color .3s;
+	font-size: 1rem;
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	width: 100%;
+	padding-left: 0px;
+	margin-left: 0px;
+	color: white;
+}
+
+.side-nav .collapsible-header, .side-nav.fixed .collapsible-header {
+	background-color: transparent;
+	border: none;
+	line-height: inherit;
+	height: inherit;
+	padding: 0 32px;
+}
+
+.side-nav li > a > i, .side-nav li > a > [class^="mdi-"], .side-nav li > a li > a > [class*="mdi-"], .side-nav li > a > i.material-icons {
+	float: left;
+	height: 48px;
+	line-height: 48px;
+	margin: 0 -10px 0 0;
+	width: 24px;
+	color: rgba(0,0,0,0.54);
+}
+
+#sidenav-overlay {
+	z-index: 996;
+}
+
+.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a {
+	padding: 0 23.5px 0 31px;
+	text-align: center;
+	background-color: #efefef;
+}
+
+.side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
+.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active a {
+	color: #6e1abb;
+	font-weight: bold;
+}
+
+/*-----------------------------------------------------------------------------------
+    Footer CSS
+-----------------------------------------------------------------------------------*/
+.page-footer {
+	height: 50px !important;
+	background: rgba(255, 255, 255, 0);
+	width: 100%;
+}
+
+.footer-copyright {
+	background: rgba(255, 255, 255, 0.25) !important;
+	/* Shadows */
+	box-shadow: 0px -7px 18px -6px rgba(0,0,0,0.66);
+	-webkit-box-shadow: 0px -7px 18px -6px rgba(0,0,0,0.66);
+	-moz-box-shadow: 0px -7px 18px -6px rgba(0,0,0,0.66);
+}
+
+/*-----------------------------------------------------------------------------------
+    Title CSS
+-----------------------------------------------------------------------------------*/
+h4 {
+	font-family: 'Overpass';
+	font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+	.section h4 {
+		font-size: 25px !important;
+	}
+}
+
+/*-----------------------------------------------------------------------------------
+    Table CSS
+-----------------------------------------------------------------------------------*/
+.responsive-table {
+	width: 90%;
+	margin: 0 auto;
+}
+
+/*-----------------------------------------------------------------------------------
+    Fieldset CSS
+-----------------------------------------------------------------------------------*/
+fieldset {
+	border: 2px solid #d0d0d0;
+	margin: 0 2px;
+	padding: 20px 24px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+legend {
+	font-family: 'Lato';
+	font-weight: 300;
+	padding: 4px 10px 4px 8px;
+}
+
+@media screen and (max-width: 767px) {
+	fieldset {
+		width: 100%;
+		margin: 0 auto;
+		padding: 10px 10px;
+	}
+}
+
+/*-----------------------------------------------------------------------------------
+    Buttons CSS
+-----------------------------------------------------------------------------------*/
+#button-area {
+	margin-right: 5%;
+	margin-top: 15px;
+	float: right;
+}
+
+#button-area a {
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+	text-align: right;
+	padding-right: 10px;
+}
+
+#button-field {
+	white-space: nowrap;
+}
+
+@media screen and (max-width: 767px) {
+	#button-area {
+		float: none;
+		margin-right: 0;
+	}
+
+	#button-area button {
+		width: 100%;
+	}
+
+	#button-area button i {
+		display: none;
+	}
+
+	#button-area a {
+		font-size: 15px;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+		padding-right: 0px;
+	}
+
+	#button-field {
+		white-space: normal;
+	}
+}
+
+/*-----------------------------------------------------------------------------------
+    Input CSS
+-----------------------------------------------------------------------------------*/
+input, select, textarea, input[type=date]:not(.browser-default) {
+	max-width: 100%;
+}
+
+::-webkit-input-placeholder {
+	color: #9a9a9a;
+}
+
+::-webkit-input-placeholder:focus {
+	color: #2b2b2b;
+}
+
+input[type=email]:focus:not([readonly]) {
+	border-bottom: 1px solid #7cb342;
+	box-shadow: 0 1px 0 0 #7cb342;
+}
+
+input[type=email]:focus:not([readonly]) + label {
+	color: #2b2b2b;
+}
+
+input[type=number]:not(.browser-default):disabled {
+	color: #2b2b2b;
+	border-bottom: 1px dotted rgba(0, 0, 0, 0.65) !important;
+}
+
+input[type=number]:not(.browser-default):disabled + label {
+	color: #9e9e9e;
+}
+
+.input-field input[type=text]:focus + label {
+	color: #2b2b2b;
+}
+
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #147aff;
+	box-shadow: 0 1px 0 0 #147aff;
+}
+
+.input-field input[type=text].valid {
+	border-bottom: 1px solid #56ff14;
+	box-shadow: 0 1px 0 0 #56ff14;
+}
+
+.input-field input[type=text].invalid {
+	border-bottom: 1px solid #f70202;
+	box-shadow: 0 1px 0 0 #f70202;
+}
+
+.input-field .prefix.active {
+	color: #147aff;
+}
+
+input[type="checkbox"]:checked + label:before {
+	border-right: 5px solid #147aff;
+	border-bottom: 5px solid #147aff;
+}
+
+.select-dropdown {
+	max-width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+	input, select, textarea, input[type=date]:not(.browser-default) {
+		max-width: 75%;
+	}
+
+	.select-wrapper {
+		max-width: 75%;
+	}
+}
+
+/*-----------------------------------------------------------------------------------
+    Chart CSS
+-----------------------------------------------------------------------------------*/
+.amcharts-chart-div > a {
+	display: none !important;
+}
+
+/*-----------------------------------------------------------------------------------
+    Search Form CSS
+-----------------------------------------------------------------------------------*/
+#search-form {
+	text-align: right;
+}
+
+#searchQuery::-webkit-input-placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 767px) {
+	#search-form {
+		text-align: center;
+	}
+
+	.responsive-table {
+		width: 100%;
+	}
+
+	#searchQuery {
+		position: relative;
+		left: 0%;
+		max-width: inherit !important;
+		margin: 0 auto;
+	}
+}
+
+/*-----------------------------------------------------------------------------------
+    Media Queries
+-----------------------------------------------------------------------------------*/
+@media screen and (max-width: 640px) {
+	.row .col.s12 {
+		padding: 0 10px;
+	}
+
+	input, select, textarea, input[type=date]:not(.browser-default) {
+		max-width: 80%;
+	}
+
+	.select-wrapper {
+		max-width: 80%;
+	}
+}
+
+@media screen and (min-width: 641px) and (max-width: 767px) {
+	/*------------ DEBTORS ---------------*/
+	#details-debtor form .row .input-field label,
+	#remove-debtor form .row .input-field label {
+		padding-left: 13% !important;
+	}
+
+	#create-debtor form .row .input-field,
+	#edit-debtor form .row .input-field,
+	#details-debtor form .row .input-field,
+	#remove-debtor form .row .input-field {
+		padding-left: 15% !important;
+	}
+
+	#create-debtor form .row .input-field label,
+	#edit-debtor form .row .input-field label,
+	#details-debtor form .row .input-field label,
+	#remove-debtor form .row .input-field label {
+		padding-left: 15%;
+	}
+
+	/*------------ PRODUCTS ---------------*/
+	#details-product form .row .input-field label,
+	#remove-product form .row .input-field label {
+		padding-left: 13% !important;
+	}
+
+	#create-product form .row .input-field,
+	#edit-product form .row .input-field,
+	#details-product form .row .input-field,
+	#remove-product form .row .input-field {
+		padding-left: 15% !important;
+	}
+
+	#create-product form .row .input-field label,
+	#edit-product form .row .input-field label,
+	#details-product form .row .input-field label,
+	#remove-product form .row .input-field label {
+		padding-left: 15%;
+	}
+}
+

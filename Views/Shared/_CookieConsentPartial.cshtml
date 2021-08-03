@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+    var cookieString = consentFeature?.CreateConsentCookie();
+}
+
+@if (showBanner)
+{
+    <nav id="cookieConsent" class="navbar navbar-light bg-light fixed-bottom navbar-expand-md" role="alert">
+    <div class="container">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#cookieConsent .navbar-collapse"> 
+            <span class="sr-only">Toggle cookie consent banner</span>&#x2630;
+        </button>
+        <span class="navbar-brand"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>
+            <div class="collapse navbar-collapse">
+                <p class="navbar-text">
+                    This website utilizes cookies and similar technologies for functionality and other purposes. Your use of this website constitutes your acceptance of cookies. To learn more about our cookies and the choices we offer, please see the link to our Cookie Policy.
+                </p>
+                <div class="ml-auto">
+                     <a asp-controller="Home" asp-action="Privacy" class="btn btn-info nav-item">Learn More</a>
+                     </div>
+                      <div class="ml-auto">
+                    <button type="button" class="btn btn-secondary nav-item" data-cookie-string="@cookieString">Accept</button>
+                </div>
+           </div>
+    </div>
+</nav>
+    <script>
+        (function () {
+            document.querySelector("#cookieConsent button[data-cookie-string]").addEventListener("click", function (el) {
+                el.preventDefault();
+                document.cookie = el.target.dataset.cookieString;
+                document.querySelector("#cookieConsent").classList.add("d-none");
+            }, false);
+        })();
+    </script>
+}

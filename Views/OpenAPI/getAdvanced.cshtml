@@ -1,0 +1,79 @@
+﻿@model FantasyWealth.Models.AdvancedStatsModel
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th>
+                currentDebt
+            </th>
+            <th>
+                revenue
+            </th>
+            <th>
+                grossProfit
+            </th>
+            <th>
+                totalRevenue
+            </th>
+            <th>
+                EBITDA
+            </th>
+            <th>
+                profitMargin
+            </th>
+            <th>
+                forwardPERatio
+            </th>
+            <th>
+                peHigh
+            </th>
+            <th>
+                peLow
+            </th>
+            <th>
+                week52highDate
+            </th>
+            <th>
+                week52lowDate
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.currentDebt)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.revenue)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.grossProfit)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.totalRevenue)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EBITDA)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.profitMargin)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.forwardPERatio)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.peHigh)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.peLow)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.week52highDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.week52lowDate)
+            </td>
+        </tr>
+    </tbody>
+</table>

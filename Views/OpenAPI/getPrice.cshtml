@@ -1,0 +1,54 @@
+@using FantasyWealth.Models
+@model ValuePairs
+
+@{ string DoFormat(decimal myNumber)
+    {
+        var s = string.Format("{0:0.00}", myNumber);
+
+        if (s.EndsWith("00"))
+        {
+            return ((int)myNumber).ToString();
+        }
+        else
+        {
+            return s;
+        }
+    } }
+
+@foreach (var c in Model.GetValues.Take(22))
+{
+<h5 class="text-warning">
+    <strong>@c.Key </strong>: @if (c.Value > 0)
+    {<strong style="color:lightgreen"> @DoFormat(c.Value) %</strong> }
+else
+{<strong class="text-danger">@DoFormat(c.Value) %</strong>}
+    <strong class="text-danger"> </strong>
+</h5>}
+
+<h5 class="text-warning"> Greendays <strong style="color:lightgreen">@Model.GreenDays</strong></h5>
+<h5 class="text-warning"> RedDays <strong class="text-danger">@Model.RedDays</strong></h5>
+@{ if (Model.Percentage > 50)
+    {
+<h5> <strong style="color:lightgreen"> @DoFormat(@Model.Percentage) % </strong> of the times , profitable during sessions</h5> }
+            else
+            {
+<h5> <strong class="text-danger"> @DoFormat(@Model.Percentage) % </strong> of the times , profitable during sessions</h5> } }
+
+
+@{ if (Model.GainOrLoss > 0)
+    {
+<h5> <strong style="color:lightgreen"> @DoFormat(@Model.GainOrLoss) % </strong> gain during the last period of time </h5> }
+            else
+            {
+<h5> <strong class="text-danger"> @DoFormat(@Model.GainOrLoss) % </strong>  loss during the last period of time</h5> }
+    }
+<h5> <strong class="text-danger">@DoFormat(@Model.NegativeAv)% </strong> Average   when down  , <strong style="color:lightgreen"> @DoFormat(@Model.PositiveAv) %</strong>  average when up</h5>
+<br />
+<h5> Best day - @Model.BestDayDate : <strong style="color:lightgreen"> @DoFormat(@Model.BestDay)% </strong>   , Worst Day @Model.WorstDayDate :<strong class="text-danger">  @DoFormat(@Model.WorstDay) %</strong>  </h5>
+
+<h5> @foreach (var c in Model.EarningCompanies)
+{
+    <strong class="text-danger">
+   Earning report today for  @c.CompanyName
+    </strong>
+        }</h5>

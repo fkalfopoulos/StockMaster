@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FantasyWealth.Areas.Identity.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fantasy Wealth</title>
+    <link rel="icon" href="~/favicon.ico">
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site2.css" />
+        <link rel="stylesheet" href="~/css/tooltip.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/web-fonts-with-css/css/fontawesome-all.css" />
+        <link rel="stylesheet" href="~/lib/jquery-ui/themes/base/jquery-ui.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/tooltip.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              asp-fallback-href="~/lib/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </environment>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119313537-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119313537-2');
+</script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="/">Fantasy Wealth<i class="fas  fa-hand-holding-usd" style="color: blue;"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#idCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="idCollapse">
+            <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Trade" asp-action="Index">Trade</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Schedule" asp-action="Index">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="TickerSymbol" asp-action="Index">Administrator</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            </ul>
+            <partial name="_LoginPartial" />
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+    <div class="container body-content">
+        <partial name="_SearchSymbolLayout" />
+        <div id="MainBody">
+            @RenderBody()
+        </div>
+        <hr />
+        <div class=" container text-center">
+            <footer class="">
+                <p>
+                   Stock tracker
+                </p>
+            </footer>
+        </div>
+    </div>
+
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/popper.js/dist/popper.js"></script>
+        <script src="~/lib/jquery-ui/jquery-ui.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                asp-fallback-src="~/lib/popper.js/dist/popper.min.js"
+                crossorigin="anonymous">
+        </script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
